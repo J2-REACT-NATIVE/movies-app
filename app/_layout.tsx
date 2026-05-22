@@ -11,7 +11,7 @@ export default function RootLayout() {
     <QueryClientProvider client={queryClient}>
       <View className="flex-1 items-center justify-center bg-white px-6">
         {/* <Slot /> */}
-        <Stack screenOptions={{ headerShown: false }} />
+        <Stack screenOptions={{ headerShown: true }} />
       </View>
     </QueryClientProvider>
   );
