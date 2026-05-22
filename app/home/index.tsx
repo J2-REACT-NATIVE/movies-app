@@ -1,4 +1,4 @@
-import { View, Text, ActivityIndicator } from "react-native";
+import { View, Text, ActivityIndicator, ScrollView } from "react-native";
 import React from "react";
 import { useMovies } from "@/presentation/hooks/useMovies";
 import {
@@ -21,18 +21,21 @@ const HomeScreen = () => {
     );
   }
   return (
-    //<View className="flex-1 border-2 justify-center items-center" style={{paddingTop: safeArea.top}}>
-    <View className="mt-2" style={{ paddingTop: safeArea.top }}>
+    <ScrollView>
+    {/* <View className="flex-1 border-2 justify-center items-center" style={{paddingTop: safeArea.top}}> */}
+    <View className="mt-2 pb-10" style={{ paddingTop: safeArea.top }}>
       <Text className="text-3xl font-bold px-4 mb-2 ">Movie App</Text>
       {/* Carrusel de Imagenes */}
       <MainSlideShow movies={getNowPlayingQuery.data || []} />
       {/* Popular */}
-      <MovieHorizontalList title={"Peliculas mas Populares"} movies={getPopularQuery.data || []} />
+      <MovieHorizontalList title={"Peliculas mas Populares"} movies={getPopularQuery.data || []} className="mb-5"/>
       {/* Top Rated */}
-      <MovieHorizontalList title={"Top rated"} movies={getTopRated.data || []} />
+      <MovieHorizontalList title={"Top rated"} movies={getTopRated.data || []} className="mb-5"/>
       {/* Upcoming */}
-      <MovieHorizontalList title={"Upcoming"} movies={getUpcoming.data || []} />
+      <MovieHorizontalList title={"Upcoming"} movies={getUpcoming.data || []} className="mb-5"/>
     </View>
+    </ScrollView>  
+    
   );
 };
 
